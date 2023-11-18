@@ -13,9 +13,9 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     socials: {
-      instagram: { type: String },
-      youtube: { type: String },
-      twitterX: { type: String },
+      instagram: { type: String, default: "https://instagram.com" },
+      youtube: { type: String, default: "https://youtube.com" },
+      twitterX: { type: String, default: "https://twitter.com" },
     },
   },
   {

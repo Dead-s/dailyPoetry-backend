@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use("/login", require("./routes/authRoute"));
 app.use("/register", require("./routes/registerRoute"));
 app.use("/addPost", require("./routes/postRoute"));
+app.use("/socials", require("./routes/socialRoute"));
 app.get("/", verifytoken, (req, res) => {
   res.json({ auth: true, name: req.body.user, userId: req.body.userId });
 });

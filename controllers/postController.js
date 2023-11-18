@@ -2,7 +2,21 @@ const Users = require("../models/schema");
 const postPoetry = require("../models/poetry");
 const asyncHandler = require("express-async-handler");
 
-const getPost = asyncHandler(async (req, res) => {});
+const getPost = asyncHandler(async (req, res) => {
+  const data = await postPoetry
+    .aggregate([
+      {
+        $lookup: {
+          from: "users",
+          localField: "name",
+          foreignField: "_id",
+          as: "name",
+        },
+      },
+    ])
+    .limit(10);
+  return res.send(data);
+});
 const addPost = asyncHandler(async (req, res) => {
   console.log("addpos", req.body);
   if (!req.body.id) {
