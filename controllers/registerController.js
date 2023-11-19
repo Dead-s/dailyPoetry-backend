@@ -1,6 +1,6 @@
 const Users = require("../models/schema");
 const asyncHandler = require("express-async-handler");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const register = asyncHandler(async (req, res) => {
   console.log(req.body);

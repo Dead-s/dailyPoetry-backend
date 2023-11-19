@@ -1,7 +1,7 @@
 const Users = require("../models/schema");
 const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const login = asyncHandler(async (req, res) => {
   const data = await Users.findOne({ name: req.body.name });

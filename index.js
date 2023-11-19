@@ -21,7 +21,7 @@ app.use("/socials", require("./routes/socialRoute"));
 app.get("/", verifytoken, (req, res) => {
   res.json({ auth: true, name: req.body.user, userId: req.body.userId });
 });
-
-app.listen(5000, function () {
-  console.log("Web server listening on port 5000");
+const port = process.env.PORT || 5000;
+app.listen(port, function () {
+  console.log(`Web server listening on port ${port}`);
 });
