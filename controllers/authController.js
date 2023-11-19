@@ -7,6 +7,7 @@ const login = asyncHandler(async (req, res) => {
   const data = await Users.findOne({ name: req.body.name });
   if (data !== null) {
     if (await bcrypt.compare(req.body.password, data.password)) {
+      console.log(req.body);
       return res
         .cookie(
           "secureCookie",
@@ -21,10 +22,12 @@ const login = asyncHandler(async (req, res) => {
             ? {
                 httpOnly: true,
                 secure: true,
+                path: "/",
                 maxAge: 15 * 24 * 60 * 60 * 1000,
               }
             : {
                 httpOnly: true,
+                path: "/",
                 secure: true,
               }
         )
