@@ -8,8 +8,9 @@ const corsOptions = {
     if (
       // allowedOrigin.indexOf(origin) !== -1 ||
       origin.includes("http://localhost") ||
-      origin.includes("https://daily-poetry-frontend.vercel.app/")
+      origin.includes("https://daily-poetry")
     ) {
+      console.log("origin : ", origin);
       return callback(null, true);
     } else {
       return callback(new Error("Not allowed by CORS"));
