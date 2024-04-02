@@ -7,7 +7,8 @@ const corsOptions = {
     }
     if (
       allowedOrigin.indexOf(origin) !== -1 ||
-      origin.includes("http://localhost")
+      origin.includes("http://localhost") ||
+      origin.includes("https://daily-poetry-frontend.vercel.app/")
     ) {
       return callback(null, true);
     } else {
