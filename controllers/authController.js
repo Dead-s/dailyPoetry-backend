@@ -21,16 +21,17 @@ const login = asyncHandler(async (req, res) => {
           ),
           req.body.remember
             ? {
-                httpOnly: true,
-                secure: true,
-                path: "/",
-                maxAge: 15 * 24 * 60 * 60 * 1000,
-              }
+              httpOnly: true,
+              secure: true,
+              path: "/",
+              maxAge: 15 * 24 * 60 * 60 * 1000,
+              sameSite: "none"
+            }
             : {
-                httpOnly: true,
-                path: "/",
-                secure: true,
-              }
+              httpOnly: true,
+              path: "/",
+              secure: true,
+            }
         )
         .json({ msg: "success" });
       // return res.status(200).json({ loggedIn: true });
