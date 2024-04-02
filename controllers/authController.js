@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const login = asyncHandler(async (req, res) => {
+  console.log("cookie ", req.cookies);
   const data = await Users.findOne({ name: req.body.name });
   if (data !== null) {
     if (await bcrypt.compare(req.body.password, data.password)) {

@@ -19,6 +19,7 @@ app.use("/register", require("./routes/registerRoute"));
 app.use("/addPost", require("./routes/postRoute"));
 app.use("/socials", require("./routes/socialRoute"));
 app.get("/", verifytoken, (req, res) => {
+  console.log("cookie", req.cookies);
   res.json({ auth: true, name: req.body.user, userId: req.body.userId });
 });
 const port = process.env.PORT || 5000;

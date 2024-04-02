@@ -6,7 +6,7 @@ const corsOptions = {
       return callback(new Error("Not allowed by CORS"));
     }
     if (
-      allowedOrigin.indexOf(origin) !== -1 ||
+      // allowedOrigin.indexOf(origin) !== -1 ||
       origin.includes("http://localhost") ||
       origin.includes("https://daily-poetry-frontend.vercel.app/")
     ) {

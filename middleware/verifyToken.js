@@ -3,6 +3,7 @@ const Users = require("../models/schema");
 const asyncHandler = require("express-async-handler");
 
 const verifytoken = asyncHandler((req, res, next) => {
+  console.log("cookie", req.cookies);
   const token = req.cookies.secureCookie;
   if (!token) {
     return res.status(401).json("No token found");
